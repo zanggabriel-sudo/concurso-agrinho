@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Agrinho 2026 | Agro Forte e Sustentável</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    :root{
+      --green:#00d084;
+      --green2:#00ff9d;
+      --blue:#0b3d91;
+      --blue2:#00bfff;
+      --dark:#07111f;
+      --gray:#b8c4d3;
+      --glass:rgba(255,255,255,0.08);
+      --border:rgba(255,255,255,0.12);
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:linear-gradient(180deg,#04111f,#071b2e,#0b1624);
+      color:white;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      width:100%;
+      height:100%;
+      background:
+      radial-gradient(circle at top left, rgba(0,255,157,0.18), transparent 30%),
+      radial-gradient(circle at bottom right, rgba(0,191,255,0.18), transparent 30%);
+      z-index:-1;
+    }
+
+    nav{
+      position:fixed;
+      width:100%;
+      top:0;
+      padding:20px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      backdrop-filter:blur(18px);
+      background:rgba(0,0,0,0.2);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+      z-index:1000;
+    }
+
+    nav h1{
+      font-size:1.5rem;
+      background:linear-gradient(90deg,var(--green2),var(--blue2));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      font-weight:800;
+    }
+
+    nav ul{
+      display:flex;
+      gap:30px;
+      list-style:none;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:white;
+      font-weight:500;
+      transition:.3s;
+    }
+
+    nav a:hover{
+      color:var(--green2);
+    }
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:0 8%;
+      position:relative;
+    }
+
+    .hero-content{
+      max-width:1000px;
+      animation:fadeUp 1.5s ease;
+    }
+
+    .hero h2{
+      font-size:5rem;
+      line-height:1.1;
+      margin-bottom:30px;
+      font-weight:800;
+      background:linear-gradient(90deg,#fff,var(--green2),var(--blue2));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .hero p{
+      color:var(--gray);
+      font-size:1.3rem;
+      line-height:1.8;
+      margin-bottom:40px;
+    }
+
+    .btn{
+      padding:18px 40px;
+      border:none;
+      border-radius:50px;
+      font-size:1rem;
+      font-weight:600;
+      cursor:pointer;
+      background:linear-gradient(90deg,var(--green),var(--blue2));
+      color:white;
+      transition:.4s;
+      box-shadow:0 0 30px rgba(0,255,157,.35);
+    }
+
+    .btn:hover{
+      transform:translateY(-5px) scale(1.03);
+      box-shadow:0 0 45px rgba(0,255,157,.6);
+    }
+
+    section{
+      padding:120px 8%;
+    }
+
+    .title{
+      text-align:center;
+      margin-bottom:80px;
+    }
+
+    .title h3{
+      font-size:3rem;
+      margin-bottom:15px;
+    }
+
+    .title p{
+      color:var(--gray);
+      max-width:700px;
+      margin:auto;
+      line-height:1.7;
+    }
+
+    .glass{
+      background:var(--glass);
+      border:1px solid var(--border);
+      backdrop-filter:blur(16px);
+      border-radius:30px;
+    }
+
+    .about{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:50px;
+      align-items:center;
+    }
+
+    .about img{
+      width:100%;
+      border-radius:30px;
+      object-fit:cover;
+      box-shadow:0 0 50px rgba(0,255,157,0.15);
+    }
+
+    .about-content{
+      padding:40px;
+    }
+
+    .about-content h4{
+      font-size:2.5rem;
+      margin-bottom:20px;
+    }
+
+    .about-content p{
+      color:var(--gray);
+      line-height:1.9;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      padding:40px;
+      transition:.4s;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card:hover{
+      transform:translateY(-12px);
+      border:1px solid rgba(0,255,157,.3);
+    }
+
+    .card::before{
+      content:"";
+      position:absolute;
+      width:150px;
+      height:150px;
+      background:rgba(0,255,157,0.08);
+      border-radius:50%;
+      top:-50px;
+      right:-50px;
+    }
+
+    .card h5{
+      font-size:1.5rem;
+      margin-bottom:20px;
+    }
+
+    .card p{
+      color:var(--gray);
+      line-height:1.7;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:25px;
+    }
+
+    .gallery img{
+      width:100%;
+      height:350px;
+      object-fit:cover;
+      border-radius:25px;
+      transition:.5s;
+    }
+
+    .gallery img:hover{
+      transform:scale(1.04);
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:25px;
+    }
+
+    .stat{
+      text-align:center;
+      padding:50px 20px;
+    }
+
+    .stat h2{
+      font-size:4rem;
+      background:linear-gradient(90deg,var(--green2),var(--blue2));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .timeline{
+      position:relative;
+      margin-top:50px;
+    }
+
+    .timeline::before{
+      content:"";
+      position:absolute;
+      left:50%;
+      width:4px;
+      height:100%;
+      background:linear-gradient(var(--green2),var(--blue2));
+      transform:translateX(-50%);
+    }
+
+    .timeline-item{
+      width:50%;
+      padding:40px;
+      position:relative;
+    }
+
+    .timeline-item:nth-child(odd){
+      left:0;
+      text-align:right;
+    }
+
+    .timeline-item:nth-child(even){
+      left:50%;
+    }
+
+    .timeline-box{
+      padding:30px;
+    }
+
+    footer{
+      padding:60px 8%;
+      text-align:center;
+      border-top:1px solid rgba(255,255,255,0.08);
+      background:rgba(255,255,255,0.03);
+      backdrop-filter:blur(10px);
+    }
+
+    footer h2{
+      margin-bottom:15px;
+      font-size:2rem;
+    }
+
+    footer p{
+      color:var(--gray);
+    }
+
+    .particles{
+      position:fixed;
+      width:100%;
+      height:100%;
+      overflow:hidden;
+      z-index:-2;
+    }
+
+    .particles span{
+      position:absolute;
+      display:block;
+      width:4px;
+      height:4px;
+      background:white;
+      border-radius:50%;
+      animation:animate 15s linear infinite;
+      opacity:0.2;
+    }
+
+    @keyframes animate{
+      0%{
+        transform:translateY(100vh) scale(0);
+      }
+      100%{
+        transform:translateY(-10vh) scale(1);
+      }
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(50px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @media(max-width:900px){
+
+      .hero h2{
+        font-size:3rem;
+      }
+
+      .about{
+        grid-template-columns:1fr;
+      }
+
+      .timeline::before{
+        left:20px;
+      }
+
+      .timeline-item{
+        width:100%;
+        left:0 !important;
+        padding-left:60px;
+        text-align:left !important;
+      }
+
+      nav ul{
+        display:none;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="particles">
+    <span style="left:10%;animation-duration:10s"></span>
+    <span style="left:30%;animation-duration:18s"></span>
+    <span style="left:50%;animation-duration:14s"></span>
+    <span style="left:70%;animation-duration:22s"></span>
+    <span style="left:90%;animation-duration:16s"></span>
+  </div>
+
+  <nav>
+    <h1>AGRINHO 2026</h1>
+
+    <ul>
+      <li><a href="#">Início</a></li>
+      <li><a href="#">Sustentabilidade</a></li>
+      <li><a href="#">Tecnologia</a></li>
+      <li><a href="#">Inovação</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <h2>
+        Agro Forte e Sustentável
+      </h2>
+
+      <p>
+        O futuro do agronegócio nasce da união entre tecnologia, produtividade e preservação ambiental.
+        Uma nova era onde inovação e natureza caminham lado a lado.
+      </p>
+
+      <button class="btn">
+        Explorar o Futuro
+      </button>
+
+    </div>
+
+  </section>
+
+  <section>
+
+    <div class="title">
+      <h3>Equilíbrio Entre Produção e Meio Ambiente</h3>
+
+      <p>
+        O agro sustentável representa uma revolução inteligente que impulsiona a produção sem comprometer os recursos naturais das futuras gerações.
+      </p>
+    </div>
+
+    <div class="about">
+
+      <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1600&auto=format&fit=crop">
+
+      <div class="about-content glass">
+
+        <h4>Tecnologia Verde no Campo</h4>
+
+        <p>
+          Soluções inteligentes, agricultura de precisão, energia limpa e inovação digital estão transformando o agronegócio em um modelo sustentável, eficiente e conectado com o futuro do planeta.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section>
+
+    <div class="title">
+      <h3>Inovação Sustentável</h3>
+    </div>
+
+    <div class="cards">
+
+      <div class="card glass">
+        <h5>🌱 Agricultura Inteligente</h5>
+        <p>
+          Uso de sensores, drones e inteligência artificial para maximizar produtividade e reduzir impactos ambientais.
+        </p>
+      </div>
+
+      <div class="card glass">
+        <h5>💧 Preservação Hídrica</h5>
+        <p>
+          Sistemas modernos de irrigação sustentável garantem economia de água e eficiência energética.
+        </p>
+      </div>
+
+      <div class="card glass">
+        <h5>⚡ Energia Renovável</h5>
+        <p>
+          Fazendas sustentáveis utilizam energia solar e fontes limpas para reduzir emissões.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section>
+
+    <div class="title">
+      <h3>Galeria do Futuro Agro</h3>
+    </div>
+
+    <div class="gallery">
+
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1400&auto=format&fit=crop">
+
+      <img src="https://images.unsplash.com/photo-1492496913980-501348b61469?q=80&w=1400&auto=format&fit=crop">
+
+      <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=1400&auto=format&fit=crop">
+
+    </div>
+
+  </section>
+
+  <section>
+
+    <div class="title">
+      <h3>Impacto Sustentável</h3>
+    </div>
+
+    <div class="stats">
+
+      <div class="stat glass">
+        <h2>85%</h2>
+        <p>Redução no desperdício hídrico</p>
+      </div>
+
+      <div class="stat glass">
+        <h2>70%</h2>
+        <p>Uso de energia limpa</p>
+      </div>
+
+      <div class="stat glass">
+        <h2>100%</h2>
+        <p>Compromisso com o futuro</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section>
+
+    <div class="title">
+      <h3>Evolução Sustentável do Agro</h3>
+    </div>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-box glass">
+          <h4>2000</h4>
+          <p>Início da agricultura tecnológica.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-box glass">
+          <h4>2010</h4>
+          <p>Expansão da energia renovável no campo.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-box glass">
+          <h4>2020</h4>
+          <p>Inteligência artificial aplicada à sustentabilidade.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-box glass">
+          <h4>2030</h4>
+          <p>Agro conectado totalmente sustentável.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer>
+
+    <h2>AGRINHO 2026</h2>
+
+    <p>
+      Agro Forte e Sustentável • Equilíbrio entre produção e meio ambiente
+    </p>
+
+  </footer>
+
+</body>
+</html>
