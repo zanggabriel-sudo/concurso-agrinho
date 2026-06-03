@@ -308,4 +308,34 @@
             const botoes = document.querySelectorAll('.btn-nav');
             botoes.forEach(botao => botao.classList.remove('ativo'));
 
-            // Mostra a seção desej
+            // Mostra a seção desejada
+            document.getElementById(idSecao).classList.add('ativa');
+
+            // Adiciona a classe ativa no botão clicado
+            event.currentTarget.classList.add('ativo');
+        }
+
+        // Banco de dados de curiosidades para simular a IA
+        const curiosidades = [
+            "Você sabia? Tratores autônomos guiados por GPS de alta precisão conseguem trabalhar com margem de erro de apenas 2 centímetros, evitando o pisoteio do solo e economizando combustível!",
+            "Você sabia? Através da bioinformática, cientistas criaram biofertilizantes bacterianos que fixam o nitrogênio do ar diretamente na raiz da planta, eliminando a necessidade de adubos químicos poluentes.",
+            "Você sabia? Fazendas verticais urbanas utilizam luzes de LED azuis e vermelhas calibradas em frequências específicas para acelerar a fotossíntese, gastando 95% menos água que o cultivo tradicional.",
+            "Você sabia? Chips microscópicos instalados em árvores frutíferas conseguem 'avisar' o sistema central de irrigação quando a planta está com sede, economizando água preciosa."
+        ];
+
+        function gerarCuriosidade() {
+            const campoTexto = document.getElementById('texto-ia');
+            // Escolhe uma curiosidade aleatória do array
+            const randomIndex = Math.floor(Math.random() * curiosidades.length);
+            
+            // Efeito simples de "carregando"
+            campoTexto.innerText = "Processando dados do ecossistema... 🤖";
+            
+            setTimeout(() => {
+                campoTexto.innerText = curiosidades[randomIndex];
+            }, 800);
+        }
+    </script>
+</body>
+</html>
+
