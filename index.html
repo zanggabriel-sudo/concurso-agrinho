@@ -7,17 +7,16 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --bg-principal: #0b111e;
             --bg-card: #151f32;
-            --bg-input: #0f172a;
             --azul-neon: #00d2ff;
             --verde-neon: #00e676;
             --texto-claro: #f8fafc;
-            --texto-mutado: #cbd5e1; /* Ficou mais claro para melhorar a leitura */
+            --texto-mutado: #cbd5e1; /* Corrigido para um tom mais claro e legível */
             --cinza-linha: #233554;
         }
 
@@ -31,9 +30,9 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg-principal);
             color: var(--texto-claro);
-            line-height: 1.8; /* Maior espaçamento entre linhas */
+            line-height: 1.8; /* Aumentado para melhorar a leitura com textos maiores */
             overflow-x: hidden;
-            font-size: 18px; /* Aumentado o tamanho base do texto */
+            font-size: 1.15rem; /* AUMENTADO: Texto base do site maior */
         }
 
         /* --- MENU SUPERIOR --- */
@@ -43,63 +42,63 @@
             left: 0;
             width: 100%;
             background: rgba(11, 17, 30, 0.9);
-            backdrop-filter: blur(16px);
+            backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--cinza-linha);
             z-index: 1000;
-            padding: 1.2rem 3rem;
+            padding: 1.2rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-weight: 800;
-            font-size: 1.5rem;
+            font-weight: 700;
+            font-size: 1.5rem; /* AUMENTADO */
             background: linear-gradient(45deg, var(--azul-neon), var(--verde-neon));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: 1px;
         }
 
         nav {
             display: flex;
-            gap: 1.2rem;
+            gap: 1rem;
         }
 
         .nav-btn {
             background: transparent;
             border: 1px solid var(--cinza-linha);
             color: var(--texto-claro);
-            padding: 0.7rem 1.5rem;
+            padding: 0.7rem 1.5rem; /* AUMENTADO */
             border-radius: 50px;
             cursor: pointer;
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 600;
-            font-size: 1rem;
+            font-weight: 500;
+            font-size: 1.05rem; /* AUMENTADO */
             transition: all 0.3s ease;
         }
 
         .nav-btn:hover, .nav-btn.active {
             border-color: var(--azul-neon);
             color: var(--azul-neon);
-            box-shadow: 0 0 20px rgba(0, 210, 255, 0.25);
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
             background: rgba(0, 210, 255, 0.05);
         }
 
         /* --- CONTAINER DE CONTEÚDO --- */
         main {
             margin-top: 100px;
-            padding: 3rem 2rem;
+            padding: 2rem;
             min-height: calc(100vh - 100px);
             display: flex;
             justify-content: center;
+            align-items: center;
         }
 
         .page-content {
             width: 100%;
-            max-width: 1100px;
+            max-width: 1000px;
             display: none;
-            animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: fadeIn 0.5s ease forwards;
         }
 
         .page-content.active {
@@ -107,193 +106,212 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- TÍTULOS MAIORES E EM DESTAQUE --- */
-        h1, h2 {
-            font-size: 3rem; /* Título master */
-            font-weight: 800;
+        /* MODIFICADO: Títulos principais muito maiores e destacados */
+        h2 {
+            font-size: 2.8rem; 
             margin-bottom: 2rem;
             color: #ffffff;
-            line-height: 1.2;
-            background: linear-gradient(120deg, #ffffff, #94a3b8);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
+        /* MODIFICADO: Subtítulos maiores */
         h3 {
             font-size: 1.6rem;
             margin-bottom: 1rem;
             color: var(--azul-neon);
         }
 
+        /* MODIFICADO: Parágrafos maiores e mais visíveis */
         p {
             color: var(--texto-mutado);
-            margin-bottom: 2rem;
-            font-size: 1.15rem; /* Textos maiores e legíveis */
+            margin-bottom: 1.8rem;
+            font-size: 1.2rem;
         }
 
-        .sub-paragrafo {
-            font-size: 1.1rem;
-            border-left: 3px solid var(--cinza-linha);
+        .introducao-aba {
+            font-size: 1.3rem;
+            color: #ffffff;
+            border-left: 4px solid var(--azul-neon);
             padding-left: 1rem;
-            margin: 1.5rem 0;
+            margin-bottom: 2.5rem;
         }
 
-        /* --- ELEMENTOS DE MÍDIA E BLOCOS --- */
+        /* --- ESTILIZAÇÃO DOS ELEMENTOS INTERNOS --- */
         .grid-midia {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
-            margin: 3rem 0;
+            gap: 2rem;
+            margin-top: 2rem;
+            margin-bottom: 3rem;
         }
 
-        @media (max-width: 850px) {
+        @media (max-width: 768px) {
             .grid-midia { grid-template-columns: 1fr; }
-            header { flex-direction: column; gap: 1.2rem; text-align: center; padding: 1rem; }
-            main { margin-top: 160px; }
-            h2 { font-size: 2.2rem; }
+            header { flex-direction: column; gap: 1rem; text-align: center; }
+            h2 { font-size: 2rem; }
         }
 
         .media-placeholder {
             background: var(--bg-card);
             border: 1px solid var(--cinza-linha);
-            border-radius: 20px;
+            border-radius: 16px;
             padding: 2.5rem;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 320px;
         }
 
         .video-box {
             width: 100%;
-            height: 240px;
-            background: var(--bg-input);
-            border-radius: 12px;
+            height: 220px;
+            background: #0f172a;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             border: 1px dashed var(--azul-neon);
             margin-top: 1.5rem;
             color: var(--azul-neon);
-            font-weight: 600;
+            font-size: 1.1rem;
         }
 
         .artigo-card {
             background: linear-gradient(135deg, var(--bg-card), #111a2e);
-            border-left: 5px solid var(--verde-neon);
+            border-left: 4px solid var(--verde-neon);
             padding: 2rem;
-            border-radius: 0 20px 20px 0;
+            border-radius: 0 16px 16px 0;
             margin-bottom: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
 
         .citacao {
             font-style: italic;
-            color: #ffffff;
-            font-size: 1.25rem;
+            color: var(--texto-claro);
+            font-size: 1.3rem; /* Aumentado */
             margin-bottom: 1rem;
         }
 
         .fonte-artigo {
-            font-size: 0.95rem;
+            font-size: 1rem; /* Aumentado */
             color: var(--verde-neon);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            font-weight: bold;
         }
 
-        /* --- QUESTIONÁRIO (QUIZZ) INTERATIVO --- */
+        /* --- SESSÃO DO QUESTIONÁRIO (NOVO) --- */
         .quiz-container {
             background: #0f172a;
             border: 1px solid var(--cinza-linha);
-            border-radius: 20px;
+            border-radius: 16px;
             padding: 2.5rem;
-            margin-top: 4rem;
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .quiz-container h4 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .quiz-opcoes {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-top: 1rem;
         }
 
         .quiz-opcao {
             background: var(--bg-card);
             border: 1px solid var(--cinza-linha);
-            padding: 1rem 1.5rem;
-            border-radius: 12px;
-            margin-bottom: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
             cursor: pointer;
             transition: all 0.2s ease;
             font-size: 1.1rem;
         }
 
         .quiz-opcao:hover {
-            border-color: var(--azul-neon);
-            background: rgba(0, 210, 255, 0.02);
+            border-color: var(--verde-neon);
+            background: rgba(0, 230, 118, 0.05);
         }
 
         .quiz-feedback {
-            margin-top: 1.5rem;
-            font-weight: 700;
-            font-size: 1.2rem;
+            margin-top: 1rem;
+            font-weight: bold;
+            font-size: 1.1rem;
             display: none;
         }
 
         /* --- SEÇÃO DA INTELIGÊNCIA ARTIFICIAL --- */
         .ia-section {
-            background: rgba(21, 31, 50, 0.7);
+            background: rgba(21, 31, 50, 0.5);
             border: 1px solid var(--azul-neon);
-            border-radius: 28px;
+            border-radius: 24px;
             padding: 2.5rem;
-            margin: 4rem auto;
-            max-width: 1100px;
-            box-shadow: 0 0 40px rgba(0, 210, 255, 0.15);
+            margin-top: 3rem;
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.1);
         }
 
         .ia-header {
             display: flex;
             align-items: center;
-            gap: 1.2rem;
+            gap: 1rem;
             margin-bottom: 1.5rem;
         }
 
         .ia-avatar {
-            width: 55px;
-            height: 55px;
+            width: 50px;
+            height: 50px;
             background: linear-gradient(135deg, var(--azul-neon), var(--verde-neon));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 800;
+            font-weight: bold;
             color: var(--bg-principal);
+            box-shadow: 0 0 10px var(--azul-neon);
             font-size: 1.2rem;
-            box-shadow: 0 0 15px var(--azul-neon);
         }
 
         .ia-chat-box {
-            background: var(--bg-input);
-            border-radius: 16px;
-            padding: 2rem;
+            background: #0f172a;
+            border-radius: 12px;
+            padding: 1.8rem;
             min-height: 120px;
             border: 1px solid var(--cinza-linha);
+        }
+
+        .ia-chat-box p {
+            font-size: 1.2rem;
         }
 
         .ia-btn {
             background: linear-gradient(90deg, var(--azul-neon), var(--verde-neon));
             color: var(--bg-principal);
             border: none;
-            padding: 1rem 2rem;
+            padding: 0.9rem 2rem;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 1.1rem;
             cursor: pointer;
             margin-top: 1.5rem;
             font-family: 'Plus Jakarta Sans', sans-serif;
-            transition: all 0.3s ease;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .ia-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 230, 118, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 230, 118, 0.4);
         }
     </style>
 </head>
@@ -311,113 +329,114 @@
     <main>
 
         <div id="sustentabilidade" class="page-content active">
-            <h2>Sustentabilidade Reconfigurada</h2>
-            <p>O conceito de sustentabilidade no agronegócio moderno superou a barreira da mera preservação passiva. Hoje, ela significa **produção regenerativa**. Através do equilíbrio exato entre conservação ambiental e rendimento econômico, o campo tornou-se o maior aliado no combate às mudanças climáticas globais.</p>
-            <p>Práticas como a Integração Lavoura-Pecuária-Floresta (ILPF) e o Sistema de Plantio Direto não só blindam o solo contra processos erosivos, mas transformam propriedades rurais em gigantescos sumidouros de carbono, capturando gases estufa diretamente da atmosfera.</p>
+            <h2>Sustentabilidade no Agronegócio</h2>
+            <p class="introducao-aba">Equilibrar a alta produtividade de alimentos com o respeito severo aos recursos naturais é o maior desafio e trunfo do campo atual.</p>
             
+            <p>A sustentabilidade deixou de ser apenas um conceito opcional para se tornar o motor econômico do agronegócio moderno. Práticas como o Plantio Direto, que evita a perturbação do solo e retém matéria orgânica, reduzem drasticamente as emissões de gases estufa. Somado a isso, sistemas integrados como a ILPF (Integração Lavoura-Pecuária-Floresta) transformam propriedades rurais em ecossistemas inteligentes, onde a sombra das árvores conforta o gado e as pastagens renovam a terra para a próxima safra de grãos.</p>
+            
+            <p>O monitoramento ambiental rígido assegura que áreas nativas sejam preservadas de acordo com as diretrizes do código florestal, provando que o Brasil consegue expandir sua produção verticalmente: produzindo muito mais no mesmo espaço de terra através de eficiência pura.</p>
+
             <div class="grid-midia">
                 <div class="media-placeholder">
-                    <div>
-                        <h3>Manejo de Carbono Zero</h3>
-                        <p>Abaixo, veja dados e representações visuais mapeando fazendas de alta performance que utilizam o biocarvão para enriquecer microbiomas do solo sem insumos sintéticos.</p>
-                    </div>
-                    <div style="color: var(--verde-neon); font-size: 3.5rem; text-align: center; margin-top: 1rem;">🌱</div>
+                    <h3>Preservação de Recursos</h3>
+                    <p>Imagens de alta resolução capturadas por satélites e processadas para monitorar áreas de preservação permanente (APP) e avaliar o índice de biomassa viva no manejo de solo rotacionado.</p>
+                    <div style="color: var(--verde-neon); font-size: 3.5rem;">🌱</div>
                 </div>
                 <div class="media-placeholder">
-                    <div>
-                        <h3>O Ecossistema ILPF</h3>
-                        <p>Assista ao mini-documentário sobre a rotação dinâmica de culturas brasileiras que atingiram autossuficiência hídrica com recuperação de pastagens degradadas.</p>
-                    </div>
-                    <div class="video-box">[ Vídeo: O Impacto Real da ILPF ]</div>
+                    <h3>O Ciclo Verde</h3>
+                    <p>Vídeo explicativo detalhando a dinâmica de captação e sequestro de carbono no solo por meio de práticas sustentáveis avançadas de manejo.</p>
+                    <div class="video-box">[ Espaço para Vídeo Institucional ]</div>
                 </div>
             </div>
 
             <div class="quiz-container">
-                <h3>⚡ Desafio Rápido: Sustentabilidade</h3>
-                <p>Qual das seguintes técnicas é amplamente conhecida por integrar árvores, pastagem e cultivo agrícola na mesma área para maximizar a absorção de carbono?</p>
-                <div class="quiz-opcao" onclick="verificarResposta('q1', 'errado')">A) Monocultura intensiva irrigada.</div>
-                <div class="quiz-opcao" onclick="verificarResposta('q1', 'certo')">B) Integração Lavoura-Pecuária-Floresta (ILPF).</div>
-                <div class="quiz-opcao" onclick="verificarResposta('q1', 'errado')">C) Arações profundas contínuas de solo.</div>
-                <div id="feedback-q1" class="quiz-feedback"></div>
+                <h4>📝 Desafio Rápido: Qual destas práticas ajuda diretamente a sequestrar carbono no solo?</h4>
+                <div class="quiz-opcoes">
+                    <div class="quiz-opcao" onclick="verificarResposta(this, false, 'sust-feedback')">A) Revirar profundamente a terra antes de qualquer plantio.</div>
+                    <div class="quiz-opcao" onclick="verificarResposta(this, true, 'sust-feedback')">B) O Sistema de Plantio Direto e rotação de culturas.</div>
+                    <div class="quiz-opcao" onclick="verificarResposta(this, false, 'sust-feedback')">C) A eliminação de árvores perto das áreas de pastagem.</div>
+                </div>
+                <div id="sust-feedback" class="quiz-feedback"></div>
             </div>
         </div>
 
         <div id="tecnologias" class="page-content">
-            <h2>O Campo na Era Digital (Agro 5.0)</h2>
-            <p>A digitalização do campo conecta o ecossistema agrário à Internet das Coisas (IoT), Inteligência Artificial e maquinários autônomos pesados. Não estamos mais falando sobre adivinhar o clima, mas sim sobre antecipar cenários com modelos preditivos alimentados por supercomputadores.</p>
-            <p>Sensores instalados nas colheitadeiras analisam em tempo real o teor de umidade dos grãos coletados, cruzando esses dados com satélites para gerar mapas de fertilidade instantâneos. O resultado? Uma economia drástica de recursos e precisão absoluta em cada semente plantada.</p>
+            <h2>Tecnologias que Transformam o Campo</h2>
+            <p class="introducao-aba">A fusão entre o hardware pesado das máquinas agrícolas e os softwares inteligentes criam a era da Agricultura 4.0 e 5.0.</p>
             
+            <p>As fazendas contemporâneas operam baseadas em dados em tempo real. Sensores espalhados pelo solo medem a condutividade elétrica e os níveis exatos de água, permitindo que os pivôs centrais de irrigação joguem apenas o milímetro necessário para a planta, evitando desperdícios hídricos catastróficos. Nas cabines dos tratores, sistemas de piloto automático guiados por GPS de alta precisão evitam a sobreposição de faixas de plantio, poupando combustível e sementes.</p>
+            
+            <p>Na linha de frente aérea, os drones equipados com câmeras multiespectrais conseguem ler espectros de luz invisíveis ao olho humano, detectando se uma planta está sofrendo estresse hídrico ou ataque de lagartas dias antes dos sintomas físicos aparecerem visualmente no campo.</p>
+
             <div class="grid-midia">
                 <div class="media-placeholder">
-                    <div>
-                        <h3>Revolução das Nuvens</h3>
-                        <p>Análise aérea multiespectral para detecção de estresse hídrico. Drones monitoram extensões territoriais gigantescas gerando alertas automáticos via telemetria celular.</p>
-                    </div>
-                    <div style="color: var(--azul-neon); font-size: 3.5rem; text-align: center; margin-top: 1rem;">🛸</div>
+                    <h3>Drones de Pulverização</h3>
+                    <p>Galeria visual demonstrando a precisão cirúrgica de aeronaves remotamente pilotadas aplicando insumos biológicos exclusivamente nos focos de infestação das lavouras.</p>
+                    <div style="color: var(--azul-neon); font-size: 3.5rem;">🛸</div>
                 </div>
                 <div class="media-placeholder">
-                    <div>
-                        <h3>Sistemas de Automação IoT</h3>
-                        <p>Demonstração prática de como válvulas controladas por rádio e inteligência artificial gerenciam a água da propriedade gota a gota baseado na evapotranspiração real.</p>
-                    </div>
-                    <div class="video-box">[ Vídeo: Telemetria e IoT em Campo ]</div>
+                    <h3>Sensores de Solo (IoT)</h3>
+                    <p>Assista ao fluxo de dados em tempo real saindo de sensores de profundidade e alimentando aplicativos de inteligência analítica na nuvem.</p>
+                    <div class="video-box">[ Espaço para Demonstração de IoT ]</div>
                 </div>
             </div>
 
             <div class="quiz-container">
-                <h3>⚡ Desafio Rápido: Agro Digital</h3>
-                <p>A tecnologia que permite que sensores em campo enviem dados operacionais diretamente para a nuvem sem fios chama-se:</p>
-                <div class="quiz-opcao" onclick="verificarResposta('q2', 'errado')">A) Processamento Mecânico Local.</div>
-                <div class="quiz-opcao" onclick="verificarResposta('q2', 'certo')">B) Internet das Coisas (IoT) aplicada ao Agro.</div>
-                <div class="quiz-opcao" onclick="verificarResposta('q2', 'errado')">C) Fotossíntese Sintética.</div>
-                <div id="feedback-q2" class="quiz-feedback"></div>
+                <h4>📝 Desafio Rápido: Como as câmeras multiespectrais dos drones ajudam o agricultor?</h4>
+                <div class="quiz-opcoes">
+                    <div class="quiz-opcao" onclick="verificarResposta(this, false, 'tech-feedback')">A) Elas espantam insetos voadores através de ondas magnéticas.</div>
+                    <div class="quiz-opcao" onclick="verificarResposta(this, true, 'tech-feedback')">B) Identificam anomalias na saúde da planta antes dos sintomas ficarem visíveis ao olho humano.</div>
+                    <div class="quiz-opcao" onclick="verificarResposta(this, false, 'tech-feedback')">C) Servem apenas para gravar vídeos promocionais estéticos da fazenda.</div>
+                </div>
+                <div id="tech-feedback" class="quiz-feedback"></div>
             </div>
         </div>
 
         <div id="artigos" class="page-content">
-            <h2>Evidências Científicas e Inovação</h2>
-            <p>O desenvolvimento agrário é pautado por dados rigorosos e pesquisas de ponta. Universidades e centros de pesquisa globais comprovam que a tecnologia disruptiva é o único caminho viável para alimentar a população mundial em crescimento sem expandir fronteiras agrícolas desnecessariamente.</p>
+            <h2>Ciência e Inovação no Agro</h2>
+            <p class="introducao-aba">A pesquisa acadêmica séria e os testes em laboratório pavimentam o caminho para as inovações que chegam ao mercado produtor.</p>
             
+            <p>Por trás de cada semente resistente à seca ou defensivo biológico eficiente, existem anos de estudos científicos conduzidos por universidades e centros de excelência de pesquisa. A ciência atua mapeando o genoma de microrganismos benéficos e criando modelagens matemáticas complexas para prever o comportamento do clima a longo prazo. É essa validação científica que dá segurança para o produtor investir em novos métodos tecnológicos com a certeza do retorno produtivo e ecológico.</p>
+
             <div class="artigo-card">
-                <p class="citacao">"A aplicação controlada por IA de defensivos biológicos seletivos demonstrou eficácia de 94% no manejo de pragas fitofatogênicas, reduzindo custos químicos operacionais e preservando insetos polinizadores nativos nas bordas das lavouras."</p>
-                <span class="fonte-artigo">Source: Global Biosystems Engineering Research (2025)</span>
+                <p class="citacao">"O uso de algoritmos de aprendizado de máquina na análise preditiva de solo reduziu em até 30% o desperdício de fertilizantes nitrogenados na cultura do milho, mantendo os tetos produtivos históricos estáveis."</p>
+                <span class="fonte-artigo">Source: Journal of Agricultural Data Science (2025)</span>
             </div>
 
             <div class="artigo-card">
-                <p class="citacao">"Estudos conduzidos com imageamento térmico de satélites de última geração mostram que o sombreamento proporcionado pelo componente florestal em sistemas integrados diminui o estresse térmico animal em até 4,5°C, alavancando os índices de conversão alimentar."</p>
-                <span class="fonte-artigo">Source: International Journal of Agronomy and Climate (2026)</span>
+                <p class="citacao">"Sensores ópticos acoplados a sistemas de irrigação automatizados mostraram uma economia de água de 42% em ecossistemas de cultivo semiárido, acelerando o desenvolvimento radicular."</p>
+                <span class="fonte-artigo">Source: Revista Brasileira de Engenharia Biosistêmica (2026)</span>
             </div>
-
-            <p class="sub-paragrafo">Essas publicações mostram de forma inequívoca que o cruzamento de algoritmos matemáticos avançados com ciências biológicas tradicionais dita as regras do mercado contemporâneo.</p>
 
             <div class="quiz-container">
-                <h3>⚡ Desafio Rápido: Ciência Agrária</h3>
-                <p>Segundo os estudos de engenharia de biosistemas, qual o impacto ambiental direto da aplicação seletiva de insumos por IAs?</p>
-                <div class="quiz-opcao" onclick="verificarResposta('q3', 'certo')">A) Proteção aos insetos polinizadores e drástica redução de resíduos químicos.</div>
-                <div class="quiz-opcao" onclick="verificarResposta('q3', 'errado')">B) Eliminação completa de toda a fauna de microrganismos do solo.</div>
-                <div class="quiz-opcao" onclick="verificarResposta('q3', 'errado')">C) Aumento da pegada hídrica nas plantações de milho.</div>
-                <div id="feedback-q3" class="quiz-feedback"></div>
+                <h4>📝 Desafio Rápido: Segundo as pesquisas citadas, qual foi o impacto do aprendizado de máquina na cultura do milho?</h4>
+                <div class="quiz-opcoes">
+                    <div class="quiz-opcao" onclick="verificarResposta(this, true, 'artigo-feedback')">A) Redução de até 30% no desperdício de fertilizantes nitrogenados.</div>
+                    <div class="quiz-opcao" onclick="verificarResposta(this, false, 'artigo-feedback')">B) Aumento descontrolado no consumo de água nas plantações.</div>
+                    <div class="quiz-opcao" onclick="verificarResposta(this, false, 'artigo-feedback')">C) Substituição total da mão de obra humana por robôs pesados.</div>
+                </div>
+                <div id="artigo-feedback" class="quiz-feedback"></div>
             </div>
         </div>
 
     </main>
 
-    <section class="ia-section">
+    <section class="ia-section" style="max-width: 1000px; margin: 0 auto 3rem auto;">
         <div class="ia-header">
             <div class="ia-avatar">AI</div>
             <div>
-                <h3 style="margin: 0; font-size: 1.3rem; color: #fff;">AgroBot Insight</h3>
-                <span style="font-size: 0.9rem; color: var(--azul-neon);">● Sistema de Análise Preditiva Conectado</span>
+                <h3 style="margin: 0; font-size: 1.2rem;">AgroBot Insight</h3>
+                <span style="font-size: 0.85rem; color: var(--azul-neon);">● Inteligência Artificial Ativa</span>
             </div>
         </div>
         <div class="ia-chat-box">
-            <p id="ia-texto" style="margin: 0; color: var(--texto-claro); font-size: 1.2rem;">Olá! Sou o assistente virtual do projeto Agrinho. Clique no botão abaixo para processar uma curiosidade científica de alto impacto tecnológico sobre sustentabilidade agropecuária!</p>
+            <p id="ia-texto" style="margin: 0; color: var(--texto-claro);">Olá! Sou o assistente virtual do projeto Agrinho. Clique no botão abaixo para eu processar uma curiosidade aleatória sobre inovação e sustentabilidade no campo!</p>
         </div>
-        <button class="ia-btn" onclick="gerarCuriosidade()">Gerar Insight Tecnológico</button>
+        <button class="ia-btn" onclick="gerarCuriosidade()">Gerar Curiosidade da IA</button>
     </section>
 
     <script>
-        // Transição limpa de telas (Single Page Application)
+        // Função para simular a mudança de páginas
         function mudarPagina(idPagina) {
             const paginas = document.querySelectorAll('.page-content');
             paginas.forEach(p => p.classList.remove('active'));
@@ -433,40 +452,51 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Validador interativo dos questionários
-        function verificarResposta(quizId, status) {
-            const feedback = document.getElementById(`feedback-q${quizId.replace('q','')}`);
-            feedback.style.display = "block";
-            
-            if (status === 'certo') {
-                feedback.innerText = "✓ Excelente! Resposta Correta. Você compreendeu o pilar tecnológico desta seção.";
-                feedback.style.color = var(--verde-neon);
-            } else {
-                feedback.innerText = "✕ Resposta incorreta. Tente analisar o texto acima novamente para decifrar a lógica!";
-                feedback.style.color = "#ff5252";
-            }
-        }
-
-        // Banco de dados dinâmico para simulação da Inteligência Artificial
+        // Banco de curiosidades para a IA simular as respostas
         const curiosidades = [
-            "Insight IA: O uso combinado de drones térmicos e algoritmos de visão computacional permite detectar focos de pragas nas plantações com até 4 dias de antecedência antes que os danos fiquem visíveis ao olho humano.",
-            "Insight IA: Sistemas modernos baseados em Blockchain estão sendo usados para rastrear a carne e grãos desde a fazenda até o supermercado europeu, provando sua origem 100% sustentável e livre de desmatamento.",
-            "Insight IA: Estima-se que a adoção em massa da robótica móvel autônoma em lavouras reduza a compactação do solo em até 60% se comparada aos tratores pesados tradicionais, preservando as raízes produtoras.",
-            "Insight IA: Sensores eletroquímicos enterrados no solo já conseguem 'escutar' e traduzir os sinais químicos enviados pelas raízes das plantas quando sofrem estresse por falta de potássio ou água.",
-            "Insight IA: Tintas fotovoltaicas flexíveis aplicadas em estufas agrícolas estão gerando eletricidade a partir de frequências de luz solar que as plantas não utilizam para fotossíntese, tornando as estufas autossuficientes em energia."
+            "Você sabia? Um único drone de mapeamento consegue analisar a saúde de 100 hectares de plantação em menos de 25 minutos, identificando pragas antes que elas se espalhem.",
+            "Curiosidade Biotecnológica: Cientistas desenvolveram bactérias fixadoras de nitrogênio que substituem fertilizantes químicos, alimentando a planta de forma 100% natural.",
+            "Inovação Espacial: Satélites meteorológicos modernos usam IA para prever geadas com até 15 dias de antecedência, salvando safras inteiras de café e hortaliças.",
+            "Fato Sustentável: A agricultura de precisão pode economizar tanta água em um ano que seria suficiente para abastecer uma cidade de médio porte por meses.",
+            "Robótica no Campo: Já existem tratores 100% elétricos e autônomos que funcionam por energia solar gerada na própria fazenda, zerando a emissão de carbono da operação."
         ];
 
-        // Efeito de processamento de dados da IA
+        // Função que simula a IA gerando uma resposta com efeito de carregamento
         function gerarCuriosidade() {
             const caixaTexto = document.getElementById('ia-texto');
-            caixaTexto.style.opacity = '0.4';
-            caixaTexto.innerText = "Pesquisando logs científicos na nuvem agrotécnica...";
+            caixaTexto.style.opacity = '0.5';
+            caixaTexto.innerText = "Processando dados do banco científico...";
 
             setTimeout(() => {
                 const indiceAleatorio = Math.floor(Math.random() * curiosidades.length);
                 caixaTexto.innerText = curiosidades[indiceAleatorio];
                 caixaTexto.style.opacity = '1';
-            }, 800);
+            }, 700);
+        }
+
+        // NOVA FUNÇÃO: Validar os questionários de cada aba
+        function verificarResposta(elemento, eCorreta, feedbackId) {
+            const feedbackBox = document.getElementById(feedbackId);
+            feedbackBox.style.display = "block";
+            
+            // Reseta a cor de todas as opções daquele bloco específico
+            const opcoes = elemento.parentElement.querySelectorAll('.quiz-opcao');
+            opcoes.forEach(op => {
+                op.style.borderColor = 'var(--cinza-linha)';
+                op.style.background = 'var(--bg-card)';
+            });
+
+            if(eCorreta) {
+                elemento.style.borderColor = 'var(--verde-neon)';
+                elemento.style.background = 'rgba(0, 230, 118, 0.1)';
+                feedbackBox.style.color = 'var(--verde-neon)';
+                feedbackBox.innerText = "✨ Resposta Correta! Excelente compreensão sobre a inovação do agro.";
+            } else {
+                elemento.style.borderColor = '#ff4a5a';
+                elemento.style.background = 'rgba(255, 74, 90, 0.1)';
+                feedbackBox.style.color = '#ff4a5a';
+                feedbackBox.innerText = "❌ Resposta incorreta. Releia o texto explicativo da aba e tente novamente!";
+            }
         }
     </script>
 </body>
