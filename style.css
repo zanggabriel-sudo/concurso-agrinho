@@ -1,43 +1,197 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgroTech - Tecnologias</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+/* PALETA DE CORES E VARIÁVEIS */
+:root {
+    --bg-principal: #0b0f19;    /* Cinza azulado bem escuro */
+    --bg-card: #172237;         /* Azul escuro acinzentado para os blocos */
+    --azul-tech: #38bdf8;       /* Azul ciano brilhante */
+    --verde-agro: #4ade80;      /* Verde menta tecnológico */
+    --texto-claro: #f1f5f9;     /* Branco confortável */
+    --texto-mutado: #64748b;    /* Cinza para detalhes */
+    --raio-arredondado: 24px;   /* Cantos bem arredondados */
+}
 
-    <header>
-        <h1>AGRO TECH SUSTENTÁVEL</h1>
-        <p>Inovação para o Concurso Agrinho 2026</p>
-    </header>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
 
-    <nav>
-        <a href="index.html" class="btn-nav ativo">Tecnologias</a>
-        <a href="sustentabilidade.html" class="btn-nav">Sustentabilidade</a>
-        <a href="artigos.html" class="btn-nav">Ciência</a>
-        <a href="ia.html" class="btn-nav">Espaço IA</a>
-    </nav>
+body {
+    background-color: var(--bg-principal);
+    color: var(--texto-claro);
+    line-height: 1.8;
+    padding: 0;
+}
 
-    <main>
-        <h2 class="secao-titulo">Tecnologias de Ponta no Campo</h2>
-        
-        <div class="grid-midia">
-            <div class="card">
-                <div class="midia-box">[ Espaço para Imagem: Drone Revo ]</div>
-                <h3>Drones e Mapeamento Térmico</h3>
-                <p>Uso de inteligência aérea para identificar falhas de plantio, estresse hídrico e focar a aplicação de defensivos agrícolas exatamente onde é necessário.</p>
-            </div>
+/* HEADER GRANDE E MODERNO */
+header {
+    background: radial-gradient(circle at top right, #1e293b, var(--bg-principal));
+    padding: 4rem 2rem;
+    text-align: center;
+    border-bottom: 1px solid #1e293b;
+}
 
-            <div class="card">
-                <div class="midia-box">[ Espaço para Vídeo: Sensores IoT ]</div>
-                <h3>Internet das Coisas (IoT)</h3>
-                <p>Sensores subterrâneos conectados via redes de longa distância que medem em tempo real a condutividade elétrica e umidade do solo.</p>
-            </div>
-        </div>
-    </main>
+header h1 {
+    font-size: 3.5rem;
+    color: var(--azul-tech);
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 1rem;
+}
 
-    <footer><p>&copy; 2026 Concurso Agrinho</p></footer>
-</body>
-</html>
+header p {
+    color: var(--verde-agro);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* MENU DE NAVEGAÇÃO SUPER ARREDONDADO */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 2rem;
+    position: sticky;
+    top: 0;
+    background-color: rgba(11, 15, 25, 0.85);
+    backdrop-filter: blur(12px); /* Efeito de vidro fosco */
+    z-index: 1000;
+}
+
+.btn-nav {
+    background: var(--bg-card);
+    border: 1px solid #2e3e5a;
+    color: var(--texto-claro);
+    padding: 14px 32px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px; /* Botões completamente ovais/arredondados */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-nav:hover, .btn-nav.ativo {
+    background: var(--azul-tech);
+    color: var(--bg-principal);
+    border-color: var(--azul-tech);
+    box-shadow: 0 10px 25px rgba(56, 189, 248, 0.3);
+    transform: translateY(-3px);
+}
+
+/* CONTAINER PRINCIPAL MAIOR */
+main {
+    max-width: 1400px; /* Página bem mais larga */
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+/* CARDS E BLOCOS DE CONTEÚDO */
+.secao-titulo {
+    font-size: 2.5rem;
+    color: var(--texto-claro);
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.grid-midia {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Elementos maiores */
+    gap: 40px; /* Mais espaço entre os blocos */
+}
+
+.card {
+    background-color: var(--bg-card);
+    border-radius: var(--raio-arredondado);
+    padding: 3rem; /* Mais espaçoso por dentro */
+    border: 1px solid #23334d;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    font-size: 1.8rem;
+    color: var(--azul-tech);
+    margin-bottom: 1rem;
+}
+
+/* ESPAÇO PARA FOTOS/VÍDEOS ARREDONDADOS */
+.midia-box {
+    background-color: #0b0f19;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px; /* Interno arredondado */
+    margin-bottom: 2rem;
+    color: var(--texto-mutated);
+    border: 2px dashed #23334d;
+}
+
+/* ARTIGOS CIENTÍFICOS */
+blockquote {
+    background-color: #0b0f19;
+    border-left: 5px solid var(--verde-agro);
+    padding: 2rem;
+    border-radius: 0 var(--raio-arredondado) var(--raio-arredondado) 0;
+    font-style: italic;
+    font-size: 1.1rem;
+    margin: 1.5rem 0;
+}
+
+.fonte {
+    color: var(--verde-agro);
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* CAIXA DA INTELIGÊNCIA ARTIFICIAL */
+.ia-container {
+    background: linear-gradient(135deg, #172237 0%, #0b0f19 100%);
+    border: 1px solid var(--azul-tech);
+    border-radius: var(--raio-arredondado);
+    padding: 4rem;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(56, 189, 248, 0.1);
+}
+
+.ia-avatar {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--azul-tech), var(--verde-agro));
+    border-radius: 50%;
+    margin: 0 auto 2rem auto;
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
+}
+
+.btn-ia {
+    background: transparent;
+    border: 2px solid var(--verde-agro);
+    color: var(--verde-agro);
+    padding: 16px 40px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 2rem;
+    transition: all 0.3s;
+}
+
+.btn-ia:hover {
+    background: var(--verde-agro);
+    color: var(--bg-principal);
+    box-shadow: 0 10px 20px rgba(74, 222, 128, 0.3);
+}
+
+/* RODAPÉ */
+footer {
+    text-align: center;
+    padding: 4rem;
+    color: var(--texto-mutado);
+    border-top: 1px solid #1e293b;
+    margin-top: 6rem;
+}
