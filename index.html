@@ -3,183 +3,360 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgroTech - Tecnologias</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Tecnologia Sustentável no Campo - Agrinho</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-principal: #0b111e;
+            --bg-card: #151f32;
+            --azul-neon: #00d2ff;
+            --verde-neon: #00e676;
+            --texto-claro: #f8fafc;
+            --texto-mutado: #94a3b8;
+            --cinza-linha: #233554;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-principal);
+            color: var(--texto-claro);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- MENU SUPERIOR --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(11, 17, 30, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--cinza-linha);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.3rem;
+            background: linear-gradient(45deg, var(--azul-neon), var(--verde-neon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-btn {
+            background: transparent;
+            border: 1px solid var(--cinza-linha);
+            color: var(--texto-claro);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px; /* Borda bem arredondada */
+            cursor: pointer;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            border-color: var(--azul-neon);
+            color: var(--azul-neon);
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
+            background: rgba(0, 210, 255, 0.05);
+        }
+
+        /* --- CONTAINER DE CONTEÚDO --- */
+        main {
+            margin-top: 80px;
+            padding: 2rem;
+            min-height: calc(100vh - 80px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .page-content {
+            width: 100%;
+            max-width: 1000px;
+            display: none; /* Esconde as páginas por padrão */
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .page-content.active {
+            display: block; /* Mostra apenas a página ativa */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1, h2 {
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+        }
+
+        p {
+            color: var(--texto-mutado);
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- ESTILIZAÇÃO DOS ELEMENTOS INTERNOS --- */
+        .grid-midia {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .grid-midia { grid-template-columns: 1fr; }
+            header { flex-direction: column; gap: 1rem; text-align: center; }
+        }
+
+        .media-placeholder {
+            background: var(--bg-card);
+            border: 1px solid var(--cinza-linha);
+            border-radius: 16px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 250px;
+        }
+
+        .video-box {
+            width: 100%;
+            height: 200px;
+            background: #0f172a;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed var(--azul-neon);
+            margin-top: 1rem;
+            color: var(--azul-neon);
+        }
+
+        .artigo-card {
+            background: linear-gradient(135deg, var(--bg-card), #111a2e);
+            border-left: 4px solid var(--verde-neon);
+            padding: 1.5rem;
+            border-radius: 0 16px 16px 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .citacao {
+            font-style: italic;
+            color: var(--texto-claro);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .fonte-artigo {
+            font-size: 0.85rem;
+            color: var(--verde-neon);
+            font-weight: bold;
+        }
+
+        /* --- SEÇÃO DA INTELIGÊNCIA ARTIFICIAL --- */
+        .ia-section {
+            background: rgba(21, 31, 50, 0.5);
+            border: 1px solid var(--azul-neon);
+            border-radius: 24px;
+            padding: 2rem;
+            margin-top: 3rem;
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.1);
+        }
+
+        .ia-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .ia-avatar {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--azul-neon), var(--verde-neon));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--bg-principal);
+            box-shadow: 0 0 10px var(--azul-neon);
+        }
+
+        .ia-chat-box {
+            background: #0f172a;
+            border-radius: 12px;
+            padding: 1.5rem;
+            min-height: 100px;
+            border: 1px solid var(--cinza-linha);
+        }
+
+        .ia-btn {
+            background: linear-gradient(90deg, var(--azul-neon), var(--verde-neon));
+            color: var(--bg-principal);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 1rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .ia-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 230, 118, 0.4);
+        }
+    </style>
 </head>
 <body>
 
     <header>
-        <h1>AGRO TECH SUSTENTÁVEL</h1>
-        <p>Inovação para o Concurso Agrinho 2026</p>
+        <div class="logo">AGRO_TECH 2026</div>
+        <nav>
+            <button class="nav-btn active" onclick="mudarPagina('sustentabilidade')">Sustentabilidade</button>
+            <button class="nav-btn" onclick="mudarPagina('tecnologias')">Tecnologias</button>
+            <button class="nav-btn" onclick="mudarPagina('artigos')">Ciência e Inovação</button>
+        </nav>
     </header>
 
-    <nav>
-        <a href="index.html" class="btn-nav ativo">Tecnologias</a>
-        <a href="sustentabilidade.html" class="btn-nav">Sustentabilidade</a>
-        <a href="artigos.html" class="btn-nav">Ciência</a>
-        <a href="ia.html" class="btn-nav">Espaço IA</a>
-    </nav>
-
     <main>
-        <h2 class="secao-titulo">Tecnologias de Ponta no Campo</h2>
-        
-        <div class="grid-midia">
-            <div class="card">
-                <div class="midia-box">[ Espaço para Imagem: Drone Revo ]</div>
-                <h3>Drones e Mapeamento Térmico</h3>
-                <p>Uso de inteligência aérea para identificar falhas de plantio, estresse hídrico e focar a aplicação de defensivos agrícolas exatamente onde é necessário.</p>
-            </div>
 
-            <div class="card">
-                <div class="midia-box">[ Espaço para Vídeo: Sensores IoT ]</div>
-                <h3>Internet das Coisas (IoT)</h3>
-                <p>Sensores subterrâneos conectados via redes de longa distância que medem em tempo real a condutividade elétrica e umidade do solo.</p>
+        <div id="sustentabilidade" class="page-content active">
+            <h2>Sustentabilidade no Agronegócio</h2>
+            <p>O futuro do planeta depende de uma produção de alimentos inteligente. A sustentabilidade no agro une técnicas milenares de preservação ambiental com o que há de mais avançado em monitoramento e gestão de recursos naturais.</p>
+            
+            <div class="grid-midia">
+                <div class="media-placeholder">
+                    <h3>Preservação de Recursos</h3>
+                    <p style="font-size: 0.9rem;">Imagens de satélite ajudando a monitorar áreas de preservação permanente (APP) e manejo de solo rotacionado.</p>
+                    <div style="color: var(--verde-neon); font-size: 3rem;">🌱</div>
+                </div>
+                <div class="media-placeholder">
+                    <h3>O Ciclo Verde</h3>
+                    <p style="font-size: 0.9rem;">Vídeo explicativo sobre a redução da pegada de carbono no campo através do plantio direto.</p>
+                    <div class="video-box">[ Espaço para Vídeo Institucional ]</div>
+                </div>
             </div>
         </div>
-    </main>
 
-    <footer><p>&copy; 2026 Concurso Agrinho</p></footer>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgroTech - Sustentabilidade</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <header>
-        <h1>AGRO TECH SUSTENTÁVEL</h1>
-        <p>Inovação para o Concurso Agrinho 2026</p>
-    </header>
-
-    <nav>
-        <a href="index.html" class="btn-nav">Tecnologias</a>
-        <a href="sustentabilidade.html" class="btn-nav ativo">Sustentabilidade</a>
-        <a href="artigos.html" class="btn-nav">Ciência</a>
-        <a href="ia.html" class="btn-nav">Espaço IA</a>
-    </nav>
-
-    <main>
-        <h2 class="secao-titulo">Sustentabilidade Aplicada</h2>
-        
-        <div class="grid-midia">
-            <div class="card">
-                <div class="midia-box">[ Espaço para Imagem: ILPF ]</div>
-                <h3>Sistemas Integrados (ILPF)</h3>
-                <p>A integração Lavoura-Pecuária-Floresta regenera o solo, melhora o bem-estar animal e sequestra toneladas de carbono da atmosfera por hectare ao ano.</p>
-            </div>
-
-            <div class="card">
-                <div class="midia-box">[ Espaço para Vídeo: Usina Solar ]</div>
-                <h3>Energia Renovável e Biomassa</h3>
-                <p>Transformação de resíduos orgânicos e dejetos animais em biogás e energia elétrica, tornando as propriedades rurais energeticamente autossuficientes.</p>
+        <div id="tecnologias" class="page-content">
+            <h2>Tecnologias que Transformam o Campo</h2>
+            <p>Drones, sensores IoT (Internet das Coisas) e tratores autônomos já fazem parte da rotina das fazendas mais modernas do país, otimizando o uso de insumos e água.</p>
+            
+            <div class="grid-midia">
+                <div class="media-placeholder">
+                    <h3>Drones de Pulverização</h3>
+                    <p style="font-size: 0.9rem;">Imagem demonstrando a precisão milimétrica de drones aplicando defensivos biológicos apenas onde é necessário.</p>
+                    <div style="color: var(--azul-neon); font-size: 3rem;">🛸</div>
+                </div>
+                <div class="media-placeholder">
+                    <h3>Sensores de Solo (IoT)</h3>
+                    <p style="font-size: 0.9rem;">Assista como sensores conectados enviam dados em tempo real sobre a umidade da terra para o celular do produtor.</p>
+                    <div class="video-box">[ Espaço para Demonstração de IoT ]</div>
+                </div>
             </div>
         </div>
-    </main>
 
-    <footer><p>&copy; 2026 Concurso Agrinho</p></footer>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgroTech - Ciência</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+        <div id="artigos" class="page-content">
+            <h2>Ciência e Inovação no Agro</h2>
+            <p>Pesquisas científicas validam as práticas tecnológicas, provando que produtividade e preservação andam de mãos dadas.</p>
+            
+            <div class="artigo-card">
+                <p class="citacao">"O uso de algoritmos de aprendizado de máquina na análise preditiva de solo reduziu em até 30% o desperdício de fertilizantes nitrogenados na cultura do milho."</p>
+                <span class="fonte-artigo">Source: Journal of Agricultural Data Science (2025)</span>
+            </div>
 
-    <header>
-        <h1>AGRO TECH SUSTENTÁVEL</h1>
-        <p>Inovação para o Concurso Agrinho 2026</p>
-    </header>
-
-    <nav>
-        <a href="index.html" class="btn-nav">Tecnologias</a>
-        <a href="sustentabilidade.html" class="btn-nav">Sustentabilidade</a>
-        <a href="artigos.html" class="btn-nav ativo">Ciência</a>
-        <a href="ia.html" class="btn-nav">Espaço IA</a>
-    </nav>
-
-    <main>
-        <h2 class="secao-titulo">Evidências Científicas e Inovações</h2>
-        
-        <div class="card" style="margin-bottom: 3rem;">
-            <h3>Engenharia Genética no Combate às Secas</h3>
-            <blockquote>
-                "Os resultados obtidos com variantes genéticas editadas via CRISPR demonstraram que o rearranjo enzimático aumentou a eficiência do uso da água em 34%, mantendo a taxa de fotossíntese estável mesmo sob estresse hídrico severo."
-            </blockquote>
-            <p class="fonte">Global Agricultural Science Review (2025)</p>
+            <div class="artigo-card">
+                <p class="citacao">"Sensores ópticos acoplados a sistemas de irrigação automatizados mostraram uma economia de água de 42% em ecossistemas de cultivo semiárido."</p>
+                <span class="fonte-artigo">Source: Revista Brasileira de Engenharia Biosistêmica (2026)</span>
+            </div>
         </div>
 
-        <div class="card">
-            <h3>Machine Learning e Redução de Defensivos</h3>
-            <blockquote>
-                "A aplicação pulverizada direcionada por algoritmos de visão computacional reduziu a pegada química de agroquímicos em até 78% nas áreas de teste, preservando a microbiota nativa do solo."
-            </blockquote>
-            <p class="fonte">Anais da Academia Brasileira de Ciências Agrárias (2026)</p>
-        </div>
     </main>
 
-    <footer><p>&copy; 2026 Concurso Agrinho</p></footer>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgroTech - Inteligência Artificial</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <header>
-        <h1>AGRO TECH SUSTENTÁVEL</h1>
-        <p>Inovação para o Concurso Agrinho 2026</p>
-    </header>
-
-    <nav>
-        <a href="index.html" class="btn-nav">Tecnologias</a>
-        <a href="sustentabilidade.html" class="btn-nav">Sustentabilidade</a>
-        <a href="artigos.html" class="btn-nav">Ciência</a>
-        <a href="ia.html" class="btn-nav ativo">Espaço IA</a>
-    </nav>
-
-    <main>
-        <h2 class="secao-titulo">Interação Inteligente</h2>
-        
-        <div class="ia-container">
-            <div class="ia-avatar"></div>
-            <h3 style="margin-bottom: 1rem;">Módulo de Curiosidades da IA</h3>
-            <p id="resposta-ia" style="font-size: 1.3rem; min-height: 80px;">Clique no botão abaixo para ativar meus bancos de dados e gerar uma curiosidade científica sobre o Agro de vanguarda.</p>
-            <button class="btn-ia" onclick="gerarCuriosidade()">Consultar Agro-IA</button>
+    <section class="ia-section" style="max-width: 1000px; margin: 0 auto 3rem auto;">
+        <div class="ia-header">
+            <div class="ia-avatar">AI</div>
+            <div>
+                <h3 style="margin: 0; font-size: 1.1rem;">AgroBot Insight</h3>
+                <span style="font-size: 0.8rem; color: var(--azul-neon);">● Inteligência Artificial Ativa</span>
+            </div>
         </div>
-    </main>
-
-    <footer><p>&copy; 2026 Concurso Agrinho</p></footer>
+        <div class="ia-chat-box">
+            <p id="ia-texto" style="margin: 0; color: var(--texto-claro);">Olá! Sou o assistente virtual do projeto Agrinho. Clique no botão abaixo para eu processar uma curiosidade aleatória sobre inovação e sustentabilidade no campo!</p>
+        </div>
+        <button class="ia-btn" onclick="gerarCuriosidade()">Gerar Curiosidade da IA</button>
+    </section>
 
     <script>
+        // Função para simular a mudança de páginas
+        function mudarPagina(idPagina) {
+            // Esconde todas as páginas
+            const paginas = document.querySelectorAll('.page-content');
+            paginas.forEach(p => p.classList.remove('active'));
+
+            // Remove a classe ativa de todos os botões do menu
+            const botoes = document.querySelectorAll('.nav-btn');
+            botoes.forEach(b => b.classList.remove('active'));
+
+            // Mostra a página clicada
+            document.getElementById(idPagina).classList.add('active');
+
+            // Ativa o botão correspondente
+            const botaoAtivo = Array.from(botoes).find(b => b.getAttribute('onclick').includes(idPagina));
+            if (botaoAtivo) botaoAtivo.classList.add('active');
+            
+            // Rola a página para o topo de forma suave
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Banco de curiosidades para a IA simular as respostas
         const curiosidades = [
-            "Sabia que existem bio-fábricas criando vespas microscópicas? Elas atuam como 'drones biológicos' atacando lagartas que destroem plantações, eliminando totalmente os venenos químicos!",
-            "Cientistas desenvolveram um plástico feito a partir de cascas de laranja e tomate que vira adubo no solo em apenas 45 dias após proteger a lavoura.",
-            "Fazendas verticais totalmente automatizadas conseguem produzir até 350 vezes mais alimentos por metro quadrado usando luzes de LED especiais e zero agrotóxicos.",
-            "Alguns tratores modernos de 2026 já usam inteligência artificial para arrancar ervas daninhas com jatos de laser de alta potência, sem encostar um único produto químico na terra."
+            "Você sabia? Um único drone de mapeamento consegue analisar a saúde de 100 hectares de plantação em menos de 25 minutos, identificando pragas antes que elas se espalhem.",
+            "Curiosidade Biotecnológica: Cientistas desenvolveram bactérias fixadoras de nitrogênio que substituem fertilizantes químicos, alimentando a planta de forma 100% natural.",
+            "Inovação Espacial: Satélites meteorológicos modernos usam IA para prever geadas com até 15 dias de antecedência, salvando safras inteiras de café e hortaliças.",
+            "Fato Sustentável: A agricultura de precisão pode economizar tanta água em um ano que seria suficiente para abastecer uma cidade de médio porte por meses.",
+            "Robótica no Campo: Já existem tratores 100% elétricos e autônomos que funcionam por energia solar gerada na própria fazenda, zerando a emissão de carbono da operação."
         ];
 
+        // Função que simula a IA gerando uma resposta com efeito de carregamento
         function gerarCuriosidade() {
-            const display = document.getElementById('resposta-ia');
-            display.innerText = "Conectando ao servidor neural... 🌐🤖";
-            
+            const caixaTexto = document.getElementById('ia-texto');
+            caixaTexto.style.opacity = '0.5';
+            caixaTexto.innerText = "Processando dados do banco científico...";
+
             setTimeout(() => {
-                const random = Math.floor(Math.random() * curiosidades.length);
-                display.innerText = curiosidades[random];
-            }, 700);
+                const indiceAleatorio = Math.floor(Math.random() * curiosidades.length);
+                caixaTexto.innerText = curiosidades[indiceAleatorio];
+                caixaTexto.style.opacity = '1';
+            }, 700); // Pequeno atraso para dar a sensação de que a IA está "pensando"
         }
     </script>
 </body>
