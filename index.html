@@ -361,3 +361,100 @@
     </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnologia Sustentável no Campo - Agrinho</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-principal: #0b111e;
+            --bg-card: #151f32;
+            --azul-neon: #00d2ff;
+            --verde-neon: #00e676;
+            --texto-claro: #f8fafc;
+            --texto-mutado: #cbd5e1; /* Tornou-se mais clara para facilitar a leitura */
+            --cinza-linha: #233554;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-principal);
+            color: var(--texto-claro);
+            line-height: 1.8; /* Aumentado para melhor legibilidade */
+            font-size: 1.1rem; /* Aumentou o tamanho geral das palavras */
+            overflow-x: hidden;
+        }
+
+        /* --- MENU SUPERIOR --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(11, 17, 30, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--cinza-linha);
+            z-index: 1000;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            background: linear-gradient(45deg, var(--azul-neon), var(--verde-neon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            gap: 1.2rem;
+        }
+
+        .nav-btn {
+            background: transparent;
+            border: 1px solid var(--cinza-linha);
+            color: var(--texto-claro);
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            border-color: var(--azul-neon);
+            color: var(--azul-neon);
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
+            background: rgba(0, 210, 255, 0.05);
+        }
+
+        /* --- CONTAINER DE CONTEÚDO --- */
+        main {
+            margin-top: 100px;
+            padding: 3rem 2rem;
+            min-height: calc(100vh - 100px);
+            display: flex;
+            justify-content: center;
+        }
+
+        .page-content {
