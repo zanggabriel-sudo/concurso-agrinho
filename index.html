@@ -16,7 +16,7 @@
             --azul-neon: #00d2ff;
             --verde-neon: #00e676;
             --texto-claro: #f8fafc;
-            --texto-mutado: #cbd5e1; /* Corrigido para um tom mais claro e legível */
+            --texto-mutado: #cbd5e1;
             --cinza-linha: #233554;
         }
 
@@ -30,9 +30,9 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg-principal);
             color: var(--texto-claro);
-            line-height: 1.8; /* Aumentado para melhorar a leitura com textos maiores */
+            line-height: 1.8;
             overflow-x: hidden;
-            font-size: 1.15rem; /* AUMENTADO: Texto base do site maior */
+            font-size: 1.15rem;
         }
 
         /* --- MENU SUPERIOR --- */
@@ -53,7 +53,7 @@
 
         .logo {
             font-weight: 700;
-            font-size: 1.5rem; /* AUMENTADO */
+            font-size: 1.5rem;
             background: linear-gradient(45deg, var(--azul-neon), var(--verde-neon));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -68,12 +68,12 @@
             background: transparent;
             border: 1px solid var(--cinza-linha);
             color: var(--texto-claro);
-            padding: 0.7rem 1.5rem; /* AUMENTADO */
+            padding: 0.7rem 1.5rem;
             border-radius: 50px;
             cursor: pointer;
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-weight: 500;
-            font-size: 1.05rem; /* AUMENTADO */
+            font-size: 1.05rem;
             transition: all 0.3s ease;
         }
 
@@ -110,26 +110,22 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* MODIFICADO: Títulos principais muito maiores e destacados */
+        /* MODIFICADO: Títulos alterados para um azul neon brilhante e atraente */
         h2 {
             font-size: 2.8rem; 
             margin-bottom: 2rem;
-            color: #ffffff;
+            color: var(--azul-neon);
             font-weight: 700;
             letter-spacing: -0.02em;
-            background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
 
-        /* MODIFICADO: Subtítulos maiores */
+        /* Subtítulos permanecem em harmonia */
         h3 {
             font-size: 1.6rem;
             margin-bottom: 1rem;
             color: var(--azul-neon);
         }
 
-        /* MODIFICADO: Parágrafos maiores e mais visíveis */
         p {
             color: var(--texto-mutado);
             margin-bottom: 1.8rem;
@@ -172,6 +168,16 @@
             min-height: 320px;
         }
 
+        /* Estilização para a imagem adicionada */
+        .img-preservacao {
+            width: 100%;
+            max-height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border: 1px solid var(--azul-neon);
+        }
+
         .video-box {
             width: 100%;
             height: 220px;
@@ -197,17 +203,17 @@
         .citacao {
             font-style: italic;
             color: var(--texto-claro);
-            font-size: 1.3rem; /* Aumentado */
+            font-size: 1.3rem;
             margin-bottom: 1rem;
         }
 
         .fonte-artigo {
-            font-size: 1rem; /* Aumentado */
+            font-size: 1rem;
             color: var(--verde-neon);
             font-weight: bold;
         }
 
-        /* --- SESSÃO DO QUESTIONÁRIO (NOVO) --- */
+        /* --- SESSÃO DO QUESTIONÁRIO --- */
         .quiz-container {
             background: #0f172a;
             border: 1px solid var(--cinza-linha);
@@ -338,9 +344,9 @@
 
             <div class="grid-midia">
                 <div class="media-placeholder">
+                    <img src="https://geoinova.com.br/wp-content/uploads/2021/07/analises-do-solo-atraves-de-imagens-de-satelite-a-valiosa-ferramenta-de-monitoramento-ambientall.jpg" alt="Análise de Solo por Satélite" class="img-preservacao">
                     <h3>Preservação de Recursos</h3>
                     <p>Imagens de alta resolução capturadas por satélites e processadas para monitorar áreas de preservação permanente (APP) e avaliar o índice de biomassa viva no manejo de solo rotacionado.</p>
-                    <div style="color: var(--verde-neon); font-size: 3.5rem;">🌱</div>
                 </div>
                 <div class="media-placeholder">
                     <h3>O Ciclo Verde</h3>
@@ -425,7 +431,7 @@
         <div class="ia-header">
             <div class="ia-avatar">AI</div>
             <div>
-                <h3 style="margin: 0; font-size: 1.2rem;">AgroBot Insight</h3>
+                <h3 style="margin: 0; font-size: 1.2rem; color: var(--azul-neon);">AgroBot Insight</h3>
                 <span style="font-size: 0.85rem; color: var(--azul-neon);">● Inteligência Artificial Ativa</span>
             </div>
         </div>
@@ -436,7 +442,6 @@
     </section>
 
     <script>
-        // Função para simular a mudança de páginas
         function mudarPagina(idPagina) {
             const paginas = document.querySelectorAll('.page-content');
             paginas.forEach(p => p.classList.remove('active'));
@@ -452,16 +457,14 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Banco de curiosidades para a IA simular as respostas
         const curiosidades = [
-            "Você sabia? Um único drone de mapeamento consegue analisar a saúde de 100 hectares de plantação em menos de 25 minutos, identificando pragas antes que elas se espalhem.",
+            "Você sabia? Um único drone de mapeamento consegue analisar a saúde de 100 hectares de plantação em menos de 25 minutes, identificando pragas antes que elas se espalhem.",
             "Curiosidade Biotecnológica: Cientistas desenvolveram bactérias fixadoras de nitrogênio que substituem fertilizantes químicos, alimentando a planta de forma 100% natural.",
             "Inovação Espacial: Satélites meteorológicos modernos usam IA para prever geadas com até 15 dias de antecedência, salvando safras inteiras de café e hortaliças.",
             "Fato Sustentável: A agricultura de precisão pode economizar tanta água em um ano que seria suficiente para abastecer uma cidade de médio porte por meses.",
             "Robótica no Campo: Já existem tratores 100% elétricos e autônomos que funcionam por energia solar gerada na própria fazenda, zerando a emissão de carbono da operação."
         ];
 
-        // Função que simula a IA gerando uma resposta com efeito de carregamento
         function gerarCuriosidade() {
             const caixaTexto = document.getElementById('ia-texto');
             caixaTexto.style.opacity = '0.5';
@@ -474,12 +477,10 @@
             }, 700);
         }
 
-        // NOVA FUNÇÃO: Validar os questionários de cada aba
         function verificarResposta(elemento, eCorreta, feedbackId) {
             const feedbackBox = document.getElementById(feedbackId);
             feedbackBox.style.display = "block";
             
-            // Reseta a cor de todas as opções daquele bloco específico
             const opcoes = elemento.parentElement.querySelectorAll('.quiz-opcao');
             opcoes.forEach(op => {
                 op.style.borderColor = 'var(--cinza-linha)';
