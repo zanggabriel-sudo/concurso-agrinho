@@ -184,11 +184,11 @@
         /* NOVA REGRA: Ajusta as imagens para caberem perfeitamente no card */
         .midia-imagem {
             width: 100%;
-            max-height: 180px;
-            object-fit: cover;
+            max-height: 240px; /* Aumentamos para dar mais destaque */
+            object-fit: contain; /* Mostra a imagem INTEIRA, sem cortes */
             border-radius: 8px;
             margin-top: 1.5rem;
-            border: 1px solid var(--cinza-linha);
+            background: #0f172a; /* Fundo escuro para preencher caso sobre espaço nas laterais */
         }
 
         /* Ajuste para que vídeos incorporados (iframe) usem 100% do espaço */
